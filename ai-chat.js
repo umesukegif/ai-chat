@@ -1,3 +1,6 @@
+/**
+ AIチャットボットの挙動制御
+*/
 document.addEventListener("DOMContentLoaded", function () {
   const modal = document.querySelector(".ai-modal-overlay");
   const aiButton = document.querySelector("#ai-chat-button");
