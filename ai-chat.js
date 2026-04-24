@@ -5,7 +5,7 @@
       const sendButton = document.querySelector("#ai-send-button");
       const input = document.querySelector("#ai-user-input");
       const responseArea = document.querySelector("#ai-response");
-	　const icon = document.getElementById("ai-icon");
+	const icon = document.getElementById("ai-icon");
 
       // 🌱 記事タイトル取得
       const plantTitleEl = document.querySelector("#single-header-title");
@@ -40,7 +40,7 @@
           modal.style.display = "none";
         });
       }
-	　// モーダル以外がクリックされたら閉じる
+	// モーダル以外がクリックされたら閉じる
       if (modal) {
         modal.addEventListener("click", function (event) {
           if (event.target === modal) {
@@ -89,7 +89,7 @@
       const responseArea = document.getElementById("ai-response");
       const plantTitleEl = document.querySelector("#single-header-title");
       const plantTitle = plantTitleEl ? plantTitleEl.innerText : "不明な植物";
-	　const icon = document.getElementById("ai-icon"); // ← これを追加！
+	const icon = document.getElementById("ai-icon"); // ← これを追加！
 
 
       if (!questionText || !responseArea) return;
