@@ -1,0 +1,249 @@
+/****************************************
+  AIチャットモーダル（全体構成）
+*****************************************/
+.ai-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.ai-modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5em;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  position: relative;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+/****************************************
+  AIモーダル 全体レイアウト改良版
+*****************************************/
+.ai-modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5em;
+  width: 95%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  position: relative;
+  font-family: 'Helvetica Neue', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+/****************************************
+  AIモーダル スマホ向け設定
+*****************************************/
+@media screen and (max-width: 600px) {
+  .ai-modal {
+    width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    padding: 1em;
+  }
+
+  #ai-response {
+    max-height: 200px;
+  }
+
+  #ai-user-input {
+    font-size: 1em;
+  }
+}
+
+
+/****************************************
+  クローズボタン（モーダル右上の×）
+*****************************************/
+.ai-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  line-height: 48px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10000;
+}
+
+.ai-modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #000;
+}
+
+/****************************************
+  注意書きエリア
+*****************************************/
+
+.ai-note {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  border-radius: 8px;
+  padding: 0.8em 1em;
+  font-size: 0.9em;
+  margin-bottom: 1em;
+}
+
+
+/****************************************
+  質問入力エリア + 送信ボタン
+*****************************************/
+.ai-input-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+#ai-user-input {
+  flex: 1;
+  padding: 0.6em;
+  border: 2px solid #a0e3b2;
+  border-radius: 8px;
+  font-size: 1em;
+  min-height: 4em; /* ← ここで縦の初期サイズ調整 */
+  max-height: 6em;
+  resize: vertical;
+  overflow-y: auto;
+  resize: none;
+}
+
+
+#ai-send-button {
+  padding: 0.6em 1.2em;
+  background: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+#ai-send-button:hover {
+  background: #16a34a;
+}
+.ai-modal-title {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #008060;
+  margin: 0 0 0.5em 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+
+
+/****************************************
+  回答エリア
+*****************************************/
+#ai-response {
+  flex: 1;
+  min-height: 200px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: #f8f8f8;
+  padding: 1em;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  font-size: 0.95em;
+  line-height: 1.5em;
+  white-space: pre-wrap; /* 改行を保持 */
+  word-wrap: break-word; /* 長い単語を折り返す */
+
+}
+
+/****************************************
+  AI画像ボタン（記事上に出てるボタン）
+*****************************************/
+.ai-image-button {
+  border: 3px solid #2f855a;
+  border-radius: 20px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+  padding: 8px 16px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  max-height: 150px;
+  max-width: 300px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.ai-image-button:hover {
+  transform: scale(1.07);
+  cursor: pointer;
+  background-color: #ffffff;
+  box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* スマホ向け設定 */
+@media screen and (max-width: 600px) {
+  .ai-image-button {
+    width: 60%;
+    max-width: 100%;
+    display: block;
+    margin: 1em auto;
+    box-sizing: border-box;
+  }
+}
+
+/****************************************
+  AIアイコン
+*****************************************/
+
+.ai-response-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+}
+
+#ai-icon {
+  width: 64px;
+  height: 64px;
+  margin-right: 0.8em;
+  flex-shrink: 0;
+}
+
+
+/****************************************
+  質問例ボタン
+*****************************************/
+.ai-example-questions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1em;
+}
+
+.ai-example-button {
+  padding: 0.4em 0.8em;
+  border: 1px solid #008060;
+  background: #f0fff4;
+  border-radius: 6px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.ai-example-button:hover {
+  background: #c6f6d5;
+}
